@@ -25,7 +25,7 @@ const Hero = () => {
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
             Welcome to{' '}
             <span className="bg-gradient-to-r from-emerald-600 to-emerald-800 bg-clip-text text-transparent">
-              Prjatha
+              Prajatha
             </span>
           </h1>
           

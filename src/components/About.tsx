@@ -32,7 +32,7 @@ const About = () => {
           {/* Content */}
           <div>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
-              About Prjatha
+              About Prajatha
             </h2>
             <p className="text-lg text-gray-600 mb-6 leading-relaxed">
               With a vision to offer premium food and lifestyle products under one roof, 
