@@ -21,7 +21,7 @@ const Hero = () => {
       <div className="absolute inset-0">
         {/* Primary Background Image - Premium Food Spread */}
         <img 
-          src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop"
+          src="https://res.cloudinary.com/dmah4bytn/image/upload/v1751191954/11-2_ulpbvh.webp"
           alt="Premium food products and spices"
           className="w-full h-full object-cover scale-105 animate-slow-zoom"
         />
