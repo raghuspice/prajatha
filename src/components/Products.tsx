@@ -25,6 +25,7 @@ const Products = () => {
       color: 'text-orange-600',
       bgColor: 'bg-orange-50 hover:bg-orange-100',
       images: [
+        // Replace these URLs with your own images
         'https://images.pexels.com/photos/1566837/pexels-photo-1566837.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
         'https://images.pexels.com/photos/209206/pexels-photo-209206.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
         'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop'
@@ -39,6 +40,7 @@ const Products = () => {
       color: 'text-amber-600',
       bgColor: 'bg-amber-50 hover:bg-amber-100',
       images: [
+        // Replace these URLs with your own images
         'https://images.pexels.com/photos/1295572/pexels-photo-1295572.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
         'https://images.pexels.com/photos/1435735/pexels-photo-1435735.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
         'https://images.pexels.com/photos/1295571/pexels-photo-1295571.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop'
@@ -53,6 +55,7 @@ const Products = () => {
       color: 'text-pink-600',
       bgColor: 'bg-pink-50 hover:bg-pink-100',
       images: [
+        // Replace these URLs with your own images
         'https://images.pexels.com/photos/1055272/pexels-photo-1055272.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
         'https://images.pexels.com/photos/918327/pexels-photo-918327.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
         'https://images.pexels.com/photos/1854652/pexels-photo-1854652.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop'
@@ -67,6 +70,7 @@ const Products = () => {
       color: 'text-brown-600',
       bgColor: 'bg-orange-50 hover:bg-orange-100',
       images: [
+        // Replace these URLs with your own images
         'https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
         'https://images.pexels.com/photos/1793035/pexels-photo-1793035.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
         'https://images.pexels.com/photos/1695052/pexels-photo-1695052.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop'
@@ -81,6 +85,7 @@ const Products = () => {
       color: 'text-green-600',
       bgColor: 'bg-green-50 hover:bg-green-100',
       images: [
+        // Replace these URLs with your own images
         'https://images.pexels.com/photos/1340116/pexels-photo-1340116.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
         'https://images.pexels.com/photos/1340117/pexels-photo-1340117.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
         'https://images.pexels.com/photos/277253/pexels-photo-277253.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop'
@@ -95,6 +100,7 @@ const Products = () => {
       color: 'text-blue-600',
       bgColor: 'bg-blue-50 hover:bg-blue-100',
       images: [
+        // Replace these URLs with your own images
         'https://images.pexels.com/photos/1435904/pexels-photo-1435904.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
         'https://images.pexels.com/photos/1435905/pexels-photo-1435905.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
         'https://images.pexels.com/photos/1435906/pexels-photo-1435906.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop'
@@ -109,6 +115,7 @@ const Products = () => {
       color: 'text-purple-600',
       bgColor: 'bg-purple-50 hover:bg-purple-100',
       images: [
+        // Replace these URLs with your own images
         'https://images.pexels.com/photos/1488463/pexels-photo-1488463.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
         'https://images.pexels.com/photos/1488464/pexels-photo-1488464.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
         'https://images.pexels.com/photos/1488465/pexels-photo-1488465.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop'
@@ -123,6 +130,7 @@ const Products = () => {
       color: 'text-indigo-600',
       bgColor: 'bg-indigo-50 hover:bg-indigo-100',
       images: [
+        // Replace these URLs with your own images
         'https://images.pexels.com/photos/1152077/pexels-photo-1152077.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
         'https://images.pexels.com/photos/1152078/pexels-photo-1152078.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
         'https://images.pexels.com/photos/1152079/pexels-photo-1152079.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop'
@@ -306,7 +314,7 @@ const Products = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Featured Item 1 - Enhanced with multiple images */}
+            {/* Featured Item 1 - You can also replace these images */}
             <div className="relative group overflow-hidden rounded-2xl shadow-xl">
               <div className="relative h-64 overflow-hidden">
                 <img 
@@ -327,7 +335,7 @@ const Products = () => {
               </div>
             </div>
 
-            {/* Featured Item 2 - Enhanced with multiple images */}
+            {/* Featured Item 2 - You can also replace these images */}
             <div className="relative group overflow-hidden rounded-2xl shadow-xl">
               <div className="relative h-64 overflow-hidden">
                 <img 
@@ -348,7 +356,7 @@ const Products = () => {
               </div>
             </div>
 
-            {/* Featured Item 3 - Enhanced with multiple images */}
+            {/* Featured Item 3 - You can also replace these images */}
             <div className="relative group overflow-hidden rounded-2xl shadow-xl">
               <div className="relative h-64 overflow-hidden">
                 <img 
