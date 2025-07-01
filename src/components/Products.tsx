@@ -125,8 +125,8 @@ const Products = () => {
     {
       id: 'corporate',
       title: 'Corporate Bags',
-      description: 'Professional bags for corporate needs',
-      items: ['Office Bags', 'Conference Kits', 'Back Bags', 'Custom Branding'],
+      description: 'Wide variety of quality travel and everyday accessories',
+      items: ['Trolleys & Rucksacks', 'Backpacks & Duffels', 'Laptop Bags', 'Travel Accessories & Short Haul Essentials'],
       icon: <Briefcase className="h-8 w-8" />,
       color: 'text-indigo-600',
       bgColor: 'bg-indigo-50 hover:bg-indigo-100',
