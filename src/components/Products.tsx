@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Package, Coffee, Zap, Sparkles, Leaf, Snowflake, Shirt, Briefcase, ChevronLeft, ChevronRight, Play, Pause } from 'lucide-react';
 
 interface ProductCategory {
@@ -15,6 +15,9 @@ interface ProductCategory {
 const Products = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState<{ [key: string]: number }>({});
   const [isAutoPlaying, setIsAutoPlaying] = useState<{ [key: string]: boolean }>({});
+  const [touchStart, setTouchStart] = useState<{ [key: string]: number }>({});
+  const [touchEnd, setTouchEnd] = useState<{ [key: string]: number }>({});
+  const [isDragging, setIsDragging] = useState<{ [key: string]: boolean }>({});
 
   const productCategories: ProductCategory[] = [
     {
@@ -143,12 +146,23 @@ const Products = () => {
   useEffect(() => {
     const initialIndices: { [key: string]: number } = {};
     const initialAutoPlay: { [key: string]: boolean } = {};
+    const initialTouchStart: { [key: string]: number } = {};
+    const initialTouchEnd: { [key: string]: number } = {};
+    const initialDragging: { [key: string]: boolean } = {};
+    
     productCategories.forEach(category => {
       initialIndices[category.id] = 0;
       initialAutoPlay[category.id] = true;
+      initialTouchStart[category.id] = 0;
+      initialTouchEnd[category.id] = 0;
+      initialDragging[category.id] = false;
     });
+    
     setCurrentImageIndex(initialIndices);
     setIsAutoPlaying(initialAutoPlay);
+    setTouchStart(initialTouchStart);
+    setTouchEnd(initialTouchEnd);
+    setIsDragging(initialDragging);
   }, []);
 
   // Auto-slide images with individual control
@@ -156,7 +170,7 @@ const Products = () => {
     const intervals: { [key: string]: NodeJS.Timeout } = {};
     
     productCategories.forEach(category => {
-      if (isAutoPlaying[category.id]) {
+      if (isAutoPlaying[category.id] && !isDragging[category.id]) {
         intervals[category.id] = setInterval(() => {
           setCurrentImageIndex(prev => ({
             ...prev,
@@ -169,7 +183,7 @@ const Products = () => {
     return () => {
       Object.values(intervals).forEach(interval => clearInterval(interval));
     };
-  }, [isAutoPlaying, productCategories]);
+  }, [isAutoPlaying, isDragging, productCategories]);
 
   const nextImage = (categoryId: string, imagesLength: number) => {
     setCurrentImageIndex(prev => ({
@@ -199,6 +213,104 @@ const Products = () => {
     }));
   };
 
+  // Touch/Swipe handlers
+  const handleTouchStart = (categoryId: string, e: React.TouchEvent) => {
+    setTouchStart(prev => ({
+      ...prev,
+      [categoryId]: e.targetTouches[0].clientX
+    }));
+    setIsDragging(prev => ({
+      ...prev,
+      [categoryId]: true
+    }));
+  };
+
+  const handleTouchMove = (categoryId: string, e: React.TouchEvent) => {
+    setTouchEnd(prev => ({
+      ...prev,
+      [categoryId]: e.targetTouches[0].clientX
+    }));
+  };
+
+  const handleTouchEnd = (categoryId: string, imagesLength: number) => {
+    if (!touchStart[categoryId] || !touchEnd[categoryId]) return;
+    
+    const distance = touchStart[categoryId] - touchEnd[categoryId];
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe) {
+      nextImage(categoryId, imagesLength);
+    }
+    if (isRightSwipe) {
+      prevImage(categoryId, imagesLength);
+    }
+
+    // Reset touch states
+    setTouchStart(prev => ({ ...prev, [categoryId]: 0 }));
+    setTouchEnd(prev => ({ ...prev, [categoryId]: 0 }));
+    
+    // Re-enable auto-play after a delay
+    setTimeout(() => {
+      setIsDragging(prev => ({
+        ...prev,
+        [categoryId]: false
+      }));
+    }, 1000);
+  };
+
+  // Mouse drag handlers for desktop
+  const handleMouseDown = (categoryId: string, e: React.MouseEvent) => {
+    setTouchStart(prev => ({
+      ...prev,
+      [categoryId]: e.clientX
+    }));
+    setIsDragging(prev => ({
+      ...prev,
+      [categoryId]: true
+    }));
+  };
+
+  const handleMouseMove = (categoryId: string, e: React.MouseEvent) => {
+    if (!isDragging[categoryId]) return;
+    setTouchEnd(prev => ({
+      ...prev,
+      [categoryId]: e.clientX
+    }));
+  };
+
+  const handleMouseUp = (categoryId: string, imagesLength: number) => {
+    if (!touchStart[categoryId] || !touchEnd[categoryId]) {
+      setIsDragging(prev => ({
+        ...prev,
+        [categoryId]: false
+      }));
+      return;
+    }
+    
+    const distance = touchStart[categoryId] - touchEnd[categoryId];
+    const isLeftDrag = distance > 50;
+    const isRightDrag = distance < -50;
+
+    if (isLeftDrag) {
+      nextImage(categoryId, imagesLength);
+    }
+    if (isRightDrag) {
+      prevImage(categoryId, imagesLength);
+    }
+
+    // Reset states
+    setTouchStart(prev => ({ ...prev, [categoryId]: 0 }));
+    setTouchEnd(prev => ({ ...prev, [categoryId]: 0 }));
+    
+    setTimeout(() => {
+      setIsDragging(prev => ({
+        ...prev,
+        [categoryId]: false
+      }));
+    }, 1000);
+  };
+
   return (
     <section id="products" className="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -221,10 +333,20 @@ const Products = () => {
               className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 cursor-pointer group"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              {/* Enhanced Product Image Carousel */}
+              {/* Enhanced Product Image Carousel with Touch Support */}
               <div className="relative h-56 overflow-hidden">
                 {/* Image Container with Smooth Transitions */}
-                <div className="relative w-full h-full">
+                <div 
+                  className="relative w-full h-full select-none"
+                  onTouchStart={(e) => handleTouchStart(category.id, e)}
+                  onTouchMove={(e) => handleTouchMove(category.id, e)}
+                  onTouchEnd={() => handleTouchEnd(category.id, category.images.length)}
+                  onMouseDown={(e) => handleMouseDown(category.id, e)}
+                  onMouseMove={(e) => handleMouseMove(category.id, e)}
+                  onMouseUp={() => handleMouseUp(category.id, category.images.length)}
+                  onMouseLeave={() => handleMouseUp(category.id, category.images.length)}
+                  style={{ cursor: isDragging[category.id] ? 'grabbing' : 'grab' }}
+                >
                   {category.images.map((image, imageIndex) => (
                     <div
                       key={imageIndex}
@@ -237,7 +359,8 @@ const Products = () => {
                       <img 
                         src={image}
                         alt={`${category.title} ${imageIndex + 1}`}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover pointer-events-none"
+                        draggable={false}
                       />
                       {/* Individual image overlay effects */}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
@@ -246,7 +369,7 @@ const Products = () => {
                 </div>
 
                 {/* Enhanced Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300 pointer-events-none"></div>
                 
                 {/* Navigation Controls */}
                 <div className="absolute inset-0 flex items-center justify-between p-3 opacity-0 group-hover:opacity-100 transition-all duration-300">
@@ -255,7 +378,7 @@ const Products = () => {
                       e.stopPropagation();
                       prevImage(category.id, category.images.length);
                     }}
-                    className="bg-white/25 backdrop-blur-md hover:bg-white/40 text-white p-2.5 rounded-full transition-all duration-200 transform hover:scale-110 shadow-lg"
+                    className="bg-white/25 backdrop-blur-md hover:bg-white/40 text-white p-2.5 rounded-full transition-all duration-200 transform hover:scale-110 shadow-lg z-20"
                   >
                     <ChevronLeft className="h-5 w-5" />
                   </button>
@@ -264,14 +387,14 @@ const Products = () => {
                       e.stopPropagation();
                       nextImage(category.id, category.images.length);
                     }}
-                    className="bg-white/25 backdrop-blur-md hover:bg-white/40 text-white p-2.5 rounded-full transition-all duration-200 transform hover:scale-110 shadow-lg"
+                    className="bg-white/25 backdrop-blur-md hover:bg-white/40 text-white p-2.5 rounded-full transition-all duration-200 transform hover:scale-110 shadow-lg z-20"
                   >
                     <ChevronRight className="h-5 w-5" />
                   </button>
                 </div>
 
                 {/* Auto-play Control */}
-                <div className="absolute top-3 left-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute top-3 left-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
@@ -288,7 +411,7 @@ const Products = () => {
                 </div>
 
                 {/* Enhanced Image Indicators */}
-                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
                   {category.images.map((_, imageIndex) => (
                     <button
                       key={imageIndex}
@@ -306,23 +429,30 @@ const Products = () => {
                 </div>
                 
                 {/* Category Icon with Enhanced Styling */}
-                <div className={`absolute top-4 right-4 ${category.color} bg-white/95 backdrop-blur-sm p-3 rounded-full shadow-lg group-hover:scale-110 transition-all duration-300 border border-white/50`}>
+                <div className={`absolute top-4 right-4 ${category.color} bg-white/95 backdrop-blur-sm p-3 rounded-full shadow-lg group-hover:scale-110 transition-all duration-300 border border-white/50 z-20`}>
                   {category.icon}
                 </div>
 
                 {/* Enhanced Image Counter */}
-                <div className="absolute top-4 left-4 bg-black/40 backdrop-blur-md text-white text-xs px-3 py-1.5 rounded-full font-medium">
+                <div className="absolute top-4 left-4 bg-black/40 backdrop-blur-md text-white text-xs px-3 py-1.5 rounded-full font-medium z-20">
                   {(currentImageIndex[category.id] || 0) + 1} / {category.images.length}
                 </div>
 
                 {/* Progress Bar */}
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-black/20">
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-black/20 z-20">
                   <div 
                     className={`h-full ${category.color.replace('text-', 'bg-')} transition-all duration-1000 ease-linear`}
                     style={{ 
                       width: `${((currentImageIndex[category.id] || 0) + 1) / category.images.length * 100}%` 
                     }}
                   ></div>
+                </div>
+
+                {/* Swipe Indicator for Mobile */}
+                <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 md:hidden">
+                  <div className="bg-black/40 backdrop-blur-md text-white text-xs px-3 py-1 rounded-full font-medium">
+                    Swipe to browse
+                  </div>
                 </div>
               </div>
 
