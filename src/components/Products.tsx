@@ -86,10 +86,10 @@ const Products = () => {
       color: 'text-green-600',
       bgColor: 'bg-green-50 hover:bg-green-100',
       images: [
-        'https://images.pexels.com/photos/1340116/pexels-photo-1340116.jpeg?auto=compress&cs=tinysrgb&w=500&h=350&fit=crop',
-        'https://images.pexels.com/photos/1340117/pexels-photo-1340117.jpeg?auto=compress&cs=tinysrgb&w=500&h=350&fit=crop',
-        'https://images.pexels.com/photos/277253/pexels-photo-277253.jpeg?auto=compress&cs=tinysrgb&w=500&h=350&fit=crop',
-        'https://images.pexels.com/photos/1340118/pexels-photo-1340118.jpeg?auto=compress&cs=tinysrgb&w=500&h=350&fit=crop'
+        'https://ik.imagekit.io/w7nxrdf3j/Spices/s1.png?updatedAt=1751296527140',
+        'https://ik.imagekit.io/w7nxrdf3j/Spices/3.png?updatedAt=1751296545606',
+        'https://ik.imagekit.io/w7nxrdf3j/Spices/4.png?updatedAt=1751296539915',
+        'https://ik.imagekit.io/w7nxrdf3j/Spices/2.png?updatedAt=1751296533070'
       ]
     },
     {
@@ -101,10 +101,10 @@ const Products = () => {
       color: 'text-blue-600',
       bgColor: 'bg-blue-50 hover:bg-blue-100',
       images: [
-        'https://images.pexels.com/photos/1435904/pexels-photo-1435904.jpeg?auto=compress&cs=tinysrgb&w=500&h=350&fit=crop',
-        'https://images.pexels.com/photos/1435905/pexels-photo-1435905.jpeg?auto=compress&cs=tinysrgb&w=500&h=350&fit=crop',
-        'https://images.pexels.com/photos/1435906/pexels-photo-1435906.jpeg?auto=compress&cs=tinysrgb&w=500&h=350&fit=crop',
-        'https://images.pexels.com/photos/1435907/pexels-photo-1435907.jpeg?auto=compress&cs=tinysrgb&w=500&h=350&fit=crop'
+        'https://ik.imagekit.io/w7nxrdf3j/forzen/3.png?updatedAt=1751296549304',
+        'https://ik.imagekit.io/w7nxrdf3j/forzen/1.png?updatedAt=1751296545742',
+        'https://ik.imagekit.io/w7nxrdf3j/forzen/2.png?updatedAt=1751296544018',
+        'https://ik.imagekit.io/w7nxrdf3j/forzen/4.png?updatedAt=1751296542419'
       ]
     },
     {
@@ -116,10 +116,10 @@ const Products = () => {
       color: 'text-purple-600',
       bgColor: 'bg-purple-50 hover:bg-purple-100',
       images: [
-        'https://images.pexels.com/photos/1488463/pexels-photo-1488463.jpeg?auto=compress&cs=tinysrgb&w=500&h=350&fit=crop',
-        'https://images.pexels.com/photos/1488464/pexels-photo-1488464.jpeg?auto=compress&cs=tinysrgb&w=500&h=350&fit=crop',
-        'https://images.pexels.com/photos/1488465/pexels-photo-1488465.jpeg?auto=compress&cs=tinysrgb&w=500&h=350&fit=crop',
-        'https://images.pexels.com/photos/1488466/pexels-photo-1488466.jpeg?auto=compress&cs=tinysrgb&w=500&h=350&fit=crop'
+        'https://ik.imagekit.io/w7nxrdf3j/tinified/1.png?updatedAt=1751296993851',
+        'https://ik.imagekit.io/w7nxrdf3j/tinified/3.png?updatedAt=1751296993419',
+        'https://ik.imagekit.io/w7nxrdf3j/tinified/2.png?updatedAt=1751296993329',
+        'https://ik.imagekit.io/w7nxrdf3j/tinified/fa4.png?updatedAt=1751296993524'
       ]
     },
     {
@@ -131,10 +131,10 @@ const Products = () => {
       color: 'text-indigo-600',
       bgColor: 'bg-indigo-50 hover:bg-indigo-100',
       images: [
-        'https://images.pexels.com/photos/1152077/pexels-photo-1152077.jpeg?auto=compress&cs=tinysrgb&w=500&h=350&fit=crop',
-        'https://images.pexels.com/photos/1152078/pexels-photo-1152078.jpeg?auto=compress&cs=tinysrgb&w=500&h=350&fit=crop',
-        'https://images.pexels.com/photos/1152079/pexels-photo-1152079.jpeg?auto=compress&cs=tinysrgb&w=500&h=350&fit=crop',
-        'https://images.pexels.com/photos/1152080/pexels-photo-1152080.jpeg?auto=compress&cs=tinysrgb&w=500&h=350&fit=crop'
+        'https://ik.imagekit.io/w7nxrdf3j/Bags/4.png?updatedAt=1751296540892',
+        'https://ik.imagekit.io/w7nxrdf3j/Bags/3.png?updatedAt=1751296538612',
+        'https://ik.imagekit.io/w7nxrdf3j/Bags/2.png?updatedAt=1751296527120',
+        'https://ik.imagekit.io/w7nxrdf3j/Bags/1.png?updatedAt=1751296538679'
       ]
     }
   ];
