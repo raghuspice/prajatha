@@ -41,10 +41,10 @@ const Products = () => {
       color: 'text-amber-600',
       bgColor: 'bg-amber-50 hover:bg-amber-100',
       images: [
-        'https://images.pexels.com/photos/1295572/pexels-photo-1295572.jpeg?auto=compress&cs=tinysrgb&w=500&h=350&fit=crop',
-        'https://images.pexels.com/photos/1435735/pexels-photo-1435735.jpeg?auto=compress&cs=tinysrgb&w=500&h=350&fit=crop',
-        'https://images.pexels.com/photos/1295571/pexels-photo-1295571.jpeg?auto=compress&cs=tinysrgb&w=500&h=350&fit=crop',
-        'https://images.pexels.com/photos/1295573/pexels-photo-1295573.jpeg?auto=compress&cs=tinysrgb&w=500&h=350&fit=crop'
+        'https://ik.imagekit.io/w7nxrdf3j/2(1).png?updatedAt=1751296502810',
+        'https://ik.imagekit.io/w7nxrdf3j/3(1).png?updatedAt=1751296505630',
+        'https://ik.imagekit.io/w7nxrdf3j/1(1).png?updatedAt=1751296496954',
+        'https://ik.imagekit.io/w7nxrdf3j/4(1).png?updatedAt=1751296514607'
       ]
     },
     {
