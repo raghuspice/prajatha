@@ -426,7 +426,7 @@ const Products = () => {
             <div className="relative group overflow-hidden rounded-2xl shadow-xl">
               <div className="relative h-72 overflow-hidden">
                 <img 
-                  src="https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg?auto=compress&cs=tinysrgb&w=600&h=450&fit=crop"
+                  src="https://ik.imagekit.io/w7nxrdf3j/Coffee/1.png?updatedAt=1751296550818"
                   alt="South Indian coffee"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
