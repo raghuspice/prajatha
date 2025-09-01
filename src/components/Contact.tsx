@@ -58,6 +58,8 @@ const Contact = () => {
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-1">Email</h4>
                   <p className="text-gray-600">support@prajatha.com</p>
+                  <p className="text-gray-600 text-sm">UAE: support.uae@prajatha.com</p>
+                  <p className="text-gray-600 text-sm">Oman: support.oman@prajatha.com</p>
                 </div>
               </div>
 
@@ -67,7 +69,9 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-1">Phone</h4>
-                  <p className="text-gray-600">+91 95135 78518</p>
+                  <p className="text-gray-600">India: +91 95135 78518</p>
+                  <p className="text-gray-600 text-sm">UAE: +971 56 341 6633</p>
+                  <p className="text-gray-600 text-sm">Oman: +968 95924687</p>
                 </div>
               </div>
 
@@ -77,7 +81,22 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-1">Location</h4>
-                  <p className="text-gray-600">Bengaluru, Karnataka, India</p>
+                  <div className="space-y-2">
+                    <div>
+                      <p className="font-medium text-gray-800">India (Head Office)</p>
+                      <p className="text-gray-600 text-sm">Bengaluru, Karnataka, India</p>
+                    </div>
+                    <div>
+                      <p className="font-medium text-gray-800">UAE Office</p>
+                      <p className="text-gray-600 text-sm">Office No 101, B42, Al Goze third, HNS business center</p>
+                      <p className="text-gray-600 text-sm">Abdul Hamed Ahmed building, Al Quoz, Al Quoz 4, Dubai, UAE</p>
+                    </div>
+                    <div>
+                      <p className="font-medium text-gray-800">Oman Office</p>
+                      <p className="text-gray-600 text-sm">Office No 102, Building no 550, Way no 5046</p>
+                      <p className="text-gray-600 text-sm">Azaiba South, Sultanate Of Oman</p>
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -94,9 +113,35 @@ const Contact = () => {
 
             {/* Additional Info */}
             <div className="mt-8 p-6 bg-gradient-to-r from-emerald-50 to-amber-50 rounded-xl">
-              <h4 className="font-semibold text-gray-900 mb-2">Business Hours</h4>
-              <p className="text-sm text-gray-600 mb-2">Monday - Saturday: 9:00 AM - 6:00 PM</p>
-              <p className="text-sm text-gray-600">Sunday: 10:00 AM - 4:00 PM</p>
+              <h4 className="font-semibold text-gray-900 mb-3">Global Presence</h4>
+              <div className="grid grid-cols-1 gap-3 text-sm">
+                <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
+                  <span className="text-gray-600">India - Head Office & Operations</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                <div className="space-y-1">
+                  <div>support@prajatha.com</div>
+                  <div className="text-sm text-gray-400">UAE: support.uae@prajatha.com</div>
+                  <div className="text-sm text-gray-400">Oman: support.oman@prajatha.com</div>
+                </div>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                <div className="space-y-1">
+                  <div>India: +91 95135 78518</div>
+                  <div className="text-sm text-gray-400">UAE: +971 56 341 6633</div>
+                  <div className="text-sm text-gray-400">Oman: +968 95924687</div>
+                </div>
+                </div>
+              </div>
+              <div className="mt-4 pt-3 border-t border-gray-200">
+                <div className="space-y-1">
+                  <div>Bengaluru, Karnataka, India</div>
+                  <div className="text-sm text-gray-400">Dubai, UAE • Muscat, Oman</div>
+                </div>
+              </div>
             </div>
           </div>
 
