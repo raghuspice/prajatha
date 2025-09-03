@@ -57,7 +57,9 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-1">Email</h4>
-                  <p className="text-gray-600">support@prajatha.com</p>
+                  <p className="text-gray-600">support@prajatha.com (India)</p>
+                  <p className="text-gray-600">support.uae@prajatha.com (UAE)</p>
+                  <p className="text-gray-600">support.oman@prajatha.com (Oman)</p>
                 </div>
               </div>
 
@@ -67,7 +69,9 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-1">Phone</h4>
-                  <p className="text-gray-600">+91 95135 78518</p>
+                  <p className="text-gray-600">+91 95135 78518 (India)</p>
+                  <p className="text-gray-600">+971 56 341 6633 (UAE)</p>
+                  <p className="text-gray-600">+968 95924687 (Oman)</p>
                 </div>
               </div>
 
@@ -77,8 +81,24 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-1">Location</h4>
-                  <p className="text-gray-600">Bengaluru, Karnataka, India</p>
-                  <p className="text-gray-600 text-sm">Also serving UAE & Oman</p>
+                  <div className="space-y-3 text-sm text-gray-600">
+                    <div>
+                      <p className="font-medium text-gray-800">India Office</p>
+                      <p>Bengaluru, Karnataka, India</p>
+                    </div>
+                    <div>
+                      <p className="font-medium text-gray-800">UAE Office</p>
+                      <p>Alaira Foodstuff Trading Co. L.L.C</p>
+                      <p>Office No 101. B42, Al Goze third, HNS business center</p>
+                      <p>Al Quoz 4, Dubai, UAE</p>
+                    </div>
+                    <div>
+                      <p className="font-medium text-gray-800">Oman Office</p>
+                      <p>Prajatha Middle East LLC</p>
+                      <p>Office No 102, Building no 550, Way no 5046</p>
+                      <p>Azaiba South, Sultanate Of Oman</p>
+                    </div>
+                  </div>
                 </div>
               </div>
 
